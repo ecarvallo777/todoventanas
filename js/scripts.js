@@ -413,6 +413,9 @@ function eliminarProducto(pId){
   document.getElementById(pId).remove();
   verificarComponentes();
 }
+function lastOne(){
+  
+}
 function print(){
   //Recoger datos ingresados.
 
