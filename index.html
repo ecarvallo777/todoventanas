@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cotización todoVentanas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="font/iconsmind-s/css/iconsminds.css" />
+    <link rel="stylesheet" href="font/simple-line-icons/css/simple-line-icons.css" />
+
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.rtl.only.min.css" />
+    <link rel="stylesheet" href="css/vendor/component-custom-switch.min.css" />
+    <link rel="stylesheet" href="css/vendor/smart_wizard.min.css" />
+
+    <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body id="app-container" class="menu-default show-spinner">
+    <nav class="navbar fixed-top">
+        <div class="d-flex align-items-center">
+            
+
+
+            
+            
+        </div>
+
+
+        
+
+        
+    </nav>
+
+    
+
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                        <div class="card mb-4">
+                            <div id="smartWizardValidation">
+                                <ul class="card-header">
+                                    <li><a href="#step-0">Datos personales<br /><small>y contacto</small></a></li>
+                                    <li><a href="#step-1">Cotización<br /><small>Realiza tu cotización!</small></a></li>
+                                </ul>
+    
+                                <div class="card-body">
+                                    
+                                    <div id="step-0">
+                                        <form id="form-step-0" class="tooltip-label-right" novalidate>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="getCliente">Nombre</label>
+                                                    <input type="text" class="form-control" id="getCliente" placeholder="Nombre">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="getApellidos">Apellidos</label>
+                                                    <input type="text" class="form-control" id="getApellidos"
+                                                        placeholder="Apellidos">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="getContacto">Número de contacto</label>
+                                                <input type="number" class="form-control" id="getContacto"
+                                                    placeholder="9 7441 xxxx">
+                                            </div>
+                                            
+                                          
+
+                                            
+                                        </form>
+                                    </div>
+                                    <div id="step-1" style="overflow-y: scroll;">
+                                        <form id="form-step-1" class="tooltip-label-right" novalidate>
+                                                <button type="button" class="btn btn-primary btn-lg top-right-button mr-1"
+                                                    data-toggle="modal" data-backdrop="static" data-target="#exampleModalLeft">AGREGAR</button>
+                                                   
+                                                
+
+                                             
+                                            
+                                         
+                                       
+                                         
+                                            
+                                        </form>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                <div class="btn-toolbar custom-toolbar text-center card-body pt-0">
+                                    <button class="btn btn-secondary prev-btn" type="button">Anterior</button>
+                                    <button class="btn btn-secondary next-btn" type="button" data-toggle="modal" data-target="#exampleModalLeft">Siguiente</button>
+                                    <button class="btn btn-secondary finish-btn" type="button" disabled='true' id="sendButton" onclick="print(); return false;" href="#">Enviar</button>
+                                </div>
+    
+                                
+                            </div>
+                        </div>
+                    
+        </div>
+        
+
+        <div class="modal fade modal-left" id="exampleModalLeft" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLeft" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Nuevo producto</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="position-relative">
+                                                <a onclick="abrirCat('cat1')"><img class="card-img-top" src="img/cards/thumb-1.jpg"
+                                                        alt="Card image cap"></a>
+                                                <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">Categoría</span>
+                                            </div>
+                                            
+                                            <div class="col-10">
+                                                <a onclick="abrirCat('cat1')">
+                                                    <p class="list-item-heading mb-4 pt-1">Ventanal Aluminio</p>
+                                                </a>
+                                               
+                                            </div>
+
+
+
+                                            <div class="position-relative">
+                                                <a onclick="abrirCat('cat2')"><img class="card-img-top" src="img/cards/thumb-2.jpg"
+                                                        alt="Card image cap"></a>
+                                                <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">Categoría</span>
+                                            </div>
+                                            <div class="col-10">
+                                                <a onclick="abrirCat('cat2')">
+                                                    <p class="list-item-heading mb-4 pt-1">Showerdoor</p>
+                                                </a>
+                                                
+                                            </div>
+                                            <div class="position-relative">
+                                                <a onclick="abrirCat('cat3')"><img class="card-img-top" src="img/cards/thumb-3.jpg"
+                                                        alt="Card image cap"></a>
+                                                <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">Categoría</span>
+                                            </div>
+                                            <div class="col-10">
+                                                <a onclick="abrirCat('cat3')">
+                                                    <p class="list-item-heading mb-4 pt-1">Accesorios</p>
+                                                </a>
+                                                <footer>
+                                                    <p class="text-muted text-small mb-0 font-weight-light"></p>
+                                                </footer>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button id="cerrarModalCat" type="button" class="btn btn-outline-primary"
+                                                    data-dismiss="modal">Cerrar</button>
+                                                    
+                                            </div>    
+                                </div>
+                                
+                                         
+                                
+    </main>
+    
+
+    <footer class="page-footer">
+        <div class="footer-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <p class="mb-0 text-muted">Universidad de Talca 2022</p>
+                    </div>
+                    <div class="col-sm-6 d-none d-sm-block">
+                        <ul class="breadcrumb pt-0 pr-0 float-right">
+                            <li class="breadcrumb-item mb-0">
+                                <a href="#" class="btn-link">Review</a>
+                            </li>
+                            <li class="breadcrumb-item mb-0">
+                                <a href="#" class="btn-link">Purchase</a>
+                            </li>
+                            <li class="breadcrumb-item mb-0">
+                                <a href="#" class="btn-link">Docs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade modal-left" id="cat1" tabindex="-1" role="dialog"
+                                aria-labelledby="cat1" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="titulo"></h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div  id ="insertProductcat1" class="modal-body">
+                                            
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button id="cerrarModalcat1" type="button" class="btn btn-outline-primary"
+                                                    data-dismiss="modal">Cerrar</button>
+                                                    
+                                            </div>    
+                                </div> 
+                            </div>
+                        </div>
+    <div class="modal fade modal-left" id="cat2" tabindex="-1" role="dialog"
+        aria-labelledby="cat2" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+             <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="titulo"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
+                    <div id="insertProductcat2" class="modal-body">
+                                            
+                    </div>
+
+                    <div class="modal-footer">
+                        <button id="cerrarModalcat2" type="button" class="btn btn-outline-primary"
+                            data-dismiss="modal">Cerrar</button>
+                                                    
+                    </div>    
+             </div>
+        </div> 
+    </div>
+    <div class="modal fade modal-right" id="exampleModalRight" tabindex="-1" role="dialog"
+                                                    aria-labelledby="exampleModalRight" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Componentes</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <label>Dimensiones</label>
+
+                                                                <form id="componentes" class="tooltip-right-bottom position-relative ">
+                                                                    <div class="form-row">
+                                                                        <div class="form-group col-md-6 tooltip-center-top">
+                                                                            <label for="inputEmail4">Alto</label>
+                                                                            <input type="number" class="form-control" name="dimensionY" id="dimensionY" required placeholder="Ancho en cm." >
+                                                                        </div>
+                                                                        <div class="form-group col-md-6 tooltip-center-top">
+                                                                            <label for="inputPassword4">Ancho</label>
+                                                                            <input type="number" class="form-control" required name="dimensionX" id="dimensionX"  placeholder="Alto en cm." >
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <fieldset class="form-group tooltip-center-top">
+                                                                        <label>Tipo de ventana</label>
+                                                                        <div class="row">
+                                                                            
+                                                                            <div class="col-sm-10" >
+                                                                                <div class="form-check" >
+                                                                                    <input class="form-check-input" type="radio" name="gridRadios"
+                                                                                        id="L25" value="L25" class="custom-control-input" required >
+                                                                                    <label class="form-check-label" for="gridRadios1">
+                                                                                        L 25 (Grueso)
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="radio" name="gridRadios"
+                                                                                        id="L20" value="L20" class="custom-control-input" required>
+                                                                                    <label class="form-check-label" for="gridRadios2">
+                                                                                        L 20 (Intermedio)
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="form-check " >
+                                                                                    <input class="form-check-input" type="radio" name="gridRadios"
+                                                                                        id="L15" value="L15" class="custom-control-input" required>
+                                                                                    <label class="form-check-label" for="gridRadios3">
+                                                                                        L 15 (Económico)
+                                                                                    </label>
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                    </fieldset>
+                    
+                                                                    <div class="form-group" >
+                                                                        <label>Color</label>
+                                                                        <select class="form-control" id="color" required>
+                                                                            
+                                                                            <option value="Madera" id="Madera">Madera</option>
+                                                                            <option value="Bronce" id="Bronce">Bronce</option>
+                                                                            <option value="Titanio" id="Titanio">Titanio</option>
+                                                                            <option value="Mate" id="Mate">Mate</option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button id="cerrarModalProducto" type="button" class="btn btn-outline-primary"
+                                                                            data-dismiss="modal">Cancelar</button>
+                                                                        <button id = "guardar" type="button" class="btn btn-primary" ">Guardar</button>
+                                                                    </div>
+                                                                </form>
+
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div id="imprimir" style="margin:0; padding:0; display: none;" >
+                                                    <!--Mailing Start-->
+                                                    <div leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" style="background-color:#ffffff; height:29.7cm; max-width:22cm; font-family: Helvetica,Arial,sans-serif !important; margin-bottom: 40px; position: relative;">
+                                                        <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" style="width:100%; background-color:#ffffff;border-collapse:separate !important; border-spacing:0;color:#242128; margin:0;padding:30px; padding-top: 20px;"
+                                                            heigth="auto">
+                                                
+                                                            <tbody>
+                                                                <tr>
+                                                                    <!--<td align="left" valign="center" style="padding-bottom:20px;border-top:0;width:100% !important;">
+                                                                        <img src="https://coloredstrategies.com/mailing/dore.png" />
+                                                                    </td>!-->
+                                                                    <td align="right" valign="center" style="padding-bottom:20px;border-top:0;width:100% !important;">
+                                                                        <p style="color: #8f8f8f; font-weight: normal; line-height: 1.2; font-size: 12px; white-space: nowrap; ">
+                                                                            TodoVentanas<br> Independencia # 902<br>San Carlos<br>9 6823 1169
+                                                                        </p>
+                                                                    </td>
+                                                                </tr>
+                                                
+                                                                <tr>
+                                                                    <td colspan="2" style="padding-top:30px; border-top:1px solid #f1f0f0">
+                                                                        <table style="width: 100%;">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td id="postCliente" style="vertical-align:middle; border-radius: 3px; padding:30px; background-color: #f9f9f9; border-right: 5px solid white;">
+                                                                                        
+                                                                                        
+                                                                                    </td>
+                                                
+                                                                                    <td style="text-align: right; padding-top:0px; padding-bottom:0; vertical-align:middle; padding:30px; background-color: #f9f9f9; border-radius: 3px; border-left: 5px solid white;">
+                                                                                        <p style="color:#8f8f8f; font-size: 14px; padding: 0; line-height: 1.6; margin:0; ">
+                                                                                            Fecha cotización
+                                                                                            <br>
+                                                                                            14.02.2022
+                                                                                        </p>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                
+                                                                        <table style="width: 100%; margin-top:40px;">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th style="text-align:left; font-size: 16px; color:#8f8f8f; padding-bottom: 15px;">
+                                                                                        Nombre producto
+                                                                                    </th>
+                                                                                    <th style="text-align:left; font-size: 16px; color:#8f8f8f; padding-bottom: 15px;">
+                                                                                        Dimensiones
+                                                                                    </th>
+                                                                                    <th style="text-align:right; font-size: 16px; color:#8f8f8f; padding-bottom: 15px;">
+                                                                                        Tipo
+                                                                                    </th>
+                                                                                    <th style="text-align:right; font-size: 16px; color:#8f8f8f; padding-bottom: 15px;">
+                                                                                        Color
+                                                                                    </th>
+                                                                                    <th style="text-align:right; font-size: 16px; color:#8f8f8f; padding-bottom: 15px;">
+                                                                                        Precio
+                                                                                    </th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="printProducto">
+                                                                               
+                                                                                
+                                                
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                
+                                                
+                                                        <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" style="position:absolute; bottom:0; width:100%; background-color:#ffffff;border-collapse:separate !important; border-spacing:0;color:#242128; margin:0;padding:30px; padding-top: 20px;"
+                                                            heigth="auto">
+                                                            <tr>
+                                                                <td colspan="3" style="border-top:1px solid #f1f0f0">&nbsp;</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2" style="width: 100%">
+                                                                    <p href="#" style="font-size: 13px; text-decoration: none; line-height: 1.6; color:#909090; margin-top:0px; margin-bottom:0; text-align: right;">
+                                                                        Subtotal : </p>
+                                                                </td>
+                                                                <td style="padding-top:0px; text-align: right;">
+                                                                    <p style="font-size: 13px; line-height: 1.6; color:#303030; margin-bottom:0; margin-top:0; vertical-align:top; white-space:nowrap; margin-left:15px">$
+                                                                        0</p>
+                                                                </td>
+                                                            </tr>
+                                                
+                                                            <tr>
+                                                                <td colspan="2" style="width: 100%">
+                                                                    <p href="#" style="font-size: 13px; text-decoration: none; line-height: 1.6; color:#909090; margin-top:0px; margin-bottom:0; text-align: right;">
+                                                                        IVA : </p>
+                                                                </td>
+                                                                <td style="padding-top:0px; text-align: right;">
+                                                                    <p style="font-size: 13px; line-height: 1.6; color:#303030; margin-bottom:0; margin-top:0; vertical-align:top; white-space:nowrap; margin-left:15px">$
+                                                                        0</p>
+                                                                </td>
+                                                            </tr>
+                                                
+                                                            <tr>
+                                                                <td colspan="2" style="width: 100%">
+                                                                    <p href="#" style="font-size: 13px; text-decoration: none; line-height: 1.6; color:#909090; margin-top:0px; margin-bottom:0; text-align: right;">
+                                                                        Instalación : </p>
+                                                                </td>
+                                                                <td style="padding-top:0px; text-align: right;">
+                                                                    <p style="font-size: 13px; line-height: 1.6; color:#303030; margin-bottom:0; margin-top:0; vertical-align:top; white-space:nowrap; margin-left:15px">$
+                                                                        0</p>
+                                                                </td>
+                                                            </tr>
+                                                
+                                                            <tr>
+                                                                <td colspan="2" style=" width: 100%; padding-bottom:15px;">
+                                                                    <p href="#" style="font-size: 13px; text-decoration: none; line-height: 1.6; color:#909090; margin-top:0px; margin-bottom:0; text-align: right;">
+                                                                        <strong>Total : </strong></p>
+                                                                </td>
+                                                                <td style="padding-top:0px; text-align: right; padding-bottom:15px;">
+                                                                    <p style="font-size: 13px; line-height: 1.6; color:#303030; margin-bottom:0; margin-top:0; vertical-align:top; white-space:nowrap; margin-left:15px"><strong>$
+                                                                            0</strong></p>
+                                                                </td>
+                                                            </tr>
+                                                
+                                                            <tr>
+                                                                <td colspan="3" style="border-top:1px solid #f1f0f0">&nbsp;</td>
+                                                            </tr>
+                                                
+                                                            <tr>
+                                                                <td colspan="3" style="text-align:center;">
+                                                                    <p style="color: #909090; font-size:11px; text-align:center;">Este documento solo es válido como una cotización. No representa el valor real final ya que es aproximado. El precio final puede variar. </p>
+                                                                </td>
+                                                            </tr>
+                                                
+                                                        </table>
+                                                
+                                                
+                                                
+                                                
+                                                    </div>
+                                                    <!--Mailing End-->
+                                                
+                                                </div>
+    </footer>
+
+
+    <script src="js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/vendor/perfect-scrollbar.min.js"></script>
+    <script src="js/vendor/mousetrap.min.js"></script>
+    <script src="js/vendor/bootstrap-tagsinput.min.js"></script>
+    <script src="js/vendor/jquery.smartWizard.min.js"></script>
+    <script src="js/vendor/jquery.validate/jquery.validate.min.js"></script>
+    <script src="js/vendor/jquery.validate/additional-methods.min.js"></script>
+    <script src="js/vendor/typeahead.bundle.js"></script>
+
+    <script src="js/dore.script.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
