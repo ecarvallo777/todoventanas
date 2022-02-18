@@ -413,8 +413,53 @@ function eliminarProducto(pId){
   document.getElementById(pId).remove();
   verificarComponentes();
 }
-function lastOne(){
-  
+var cotizacion =0;
+var subtotal = 0;
+function lastOne(Producto){
+  // Inicio L25
+  if(Producto.detalle.tipo =="L25"){
+    if(Producto.detalle.color =="Madera"){
+      // (Riel s + inf + cabezal + zocalo = $10.000 x ancho -convertdo a mt) + (Jamba+traslapo+pierna * 2 *alto )
+      
+      cotizacion = (10000 * Producto.detalle.dimensionX/100) + ( 7500 * 2 * Producto.detalle.dimensionY/100 ) + (30 * Producto.detalle.dimensionY/100 * 6) + (116 * Producto.detalle.dimensionY/100 * 4) + ( 30 * Producto.detalle.dimensionX/100 * 6) + (116 * Producto.detalle.dimensionX/100 * 2) + (7780) + (Producto.detalle.dimensionX/100 * Producto.detalle.dimensionY/100 * 29000)
+    }
+    else if(Producto.detalle.color == "Bronce"){
+      cotizacion = (7224 * Producto.detalle.dimensionX/100) + (10836 * Producto.detalle.dimensionY/100) + (30 * 6 * Producto.detalle.dimensionY/100) + (116 * 4 * Producto.detalle.dimensionY/100) + (30 * 6 * Producto.detalle.dimensionX/100) + (116 * 2 * Producto.detalle.dimensionX/100) + (7780) + (Producto.detalle.dimensionX/100 * Producto.detalle.dimensionY/100 * 5500)
+    }
+    else if(Producto.detalle.color =="Titanio"){
+      cotizacion = (12000 * Producto.detalle.dimensionX/100) + (18000 * Producto.detalle.dimensionY/100) + (30 * 6 * Producto.detalle.dimensionY/100) + (116 * 4 *Producto.detalle.dimensionY/100)+ (30 * 6 * Producto.detalle.dimensionX/100) + (116 * 2 * Producto.detalle.dimensionX/100) + (13780) + (Producto.detalle.dimensionX/100 * Producto.detalle.dimensionY/100 * 6000)
+    }
+  }
+  // Fin L25
+
+  //Inicio L20
+  else if(Producto.detalle.tipo =="L20"){
+    if(Producto.detalle.color=="Madera"){
+      cotizacion = (9600 * Producto.detalle.dimensionX/100) + (14000 * Producto.detalle.dimensionY/100) + (38 * 6 * Producto.detalle.dimensionY/100) + (120 * 4 * Producto.detalle.dimensionY/100) + (38 * 4 * Producto.detalle.dimensionX/100) + (120 * 2 * Producto.detalle.dimensionX/100) +  (3596) + (Producto.detalle.dimensionX/100 * Producto.detalle.dimensionY/100 * 13000)
+
+    }else if(Producto.detalle.color=="Bronce"){
+      cotizacion = (9252 *Producto.detalle.dimensionX/100) + (13878 * Producto.detalle.dimensionY/100) + (33 * 6 * Producto.detalle.dimensionY/100) + (116 * 4 * Producto.detalle.dimensionY/100) + (33 * 4 * Producto.detalle.dimensionX/100) + (116 * 2 * Producto.detalle.dimensionX/100) + (3096) + (Producto.detalle.dimensionY/100 * Producto.detalle.dimensionX/100 * 6500)
+
+    }
+    else if(Producto.detalle.color="Titanio"){
+      cotizacion = (8812 * Producto.detalle.dimensionX/100) + (13218 * Producto.detalle.dimensionY/100) + (33 * 6 * Producto.detalle.dimensionY/100) + (214 * 4 * Producto.detalle.dimensionY/100 ) + (33 * 4 * Producto.detalle.dimensionX/100) + (214 * 2 * Producto.detalle.dimensionX/100) + (4396) + (Producto.detalle.dimensionY/100 * Producto.detalle.dimensionX/100 * 6500) 
+    }
+
+  }
+
+  // Fin L20
+
+  //Inicio L15
+  else if(Producto.detalle.tipo =="L15"){
+    if(Producto.detalle.color=="Titanio"){
+      
+
+    }
+  }
+  subtotal = subtotal + Math.round(cotizacion);
+  //console.log(subtotal);
+  document.getElementById('Subtotal').innerHTML = '$'+subtotal;
+  return '$'+Math.round(cotizacion);
 }
 function print(){
   //Recoger datos ingresados.
@@ -443,7 +488,7 @@ function print(){
            Producto.nombre+'</p>'+
     '</td>'+
     '<td style="padding-top:0px; padding-bottom:5px;">'+
-        '<p style="font-size: 16px; text-decoration: none; line-height: 1; color:#909090; margin-top:0px; margin-bottom:0;">'+Producto.detalle.dimensionX +'x'+Producto.detalle.dimensionY+' cm</p>'+
+        '<p style="font-size: 16px; text-decoration: none; line-height: 1; color:#909090; margin-top:0px; margin-bottom:0;">'+Producto.detalle.dimensionY +'x'+Producto.detalle.dimensionX+' cm</p>'+
     '</td>'+
     '<td style="padding-top:0px; padding-bottom:0; text-align: right;">'+
         '<p style="font-size: 16px; text-decoration: none; line-height: 1; color:#909090; margin-top:0px; margin-bottom:0; vertical-align:top; white-space:nowrap;">'+
@@ -455,7 +500,7 @@ function print(){
     '</td>'+
     '<td style="padding-top:0px; padding-bottom:0; text-align: right;">'+
         '<p style="font-size: 16px; text-decoration: none; line-height: 1; color:#909090; margin-top:0px; margin-bottom:0; vertical-align:top; white-space:nowrap;">'+
-            '$0</p>'+
+            lastOne(Producto)+'</p>'+
     '</td>'+
     '</tr>'
     var elementsss = document.getElementById('printProducto');
