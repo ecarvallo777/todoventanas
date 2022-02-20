@@ -217,7 +217,7 @@ var listaProductos = [
   {
     "id":"2",
     "categoria" : "cat2",
-    "nombre": "Espejo de aluminio",
+    "nombre": "Showerdoor",
     "imagen":"img/cards/thumb-2.jpg",
   }
                     ]
@@ -225,14 +225,14 @@ var listaProductos = [
 function llenarCat(){
 
     // Recorrer array de los productos e insertarlo en modal.
-    var i=0;                  
+    var i=1;                  
     listaProductos.forEach(function(Product){
 
 
         var insert = '<div class="position-relative">'+
         '<a onclick="agregarProducto('+Product.id+')"><img class="card-img-top" src="img/cards/p'+i+'.jpg"'+
         'alt="Card image cap"></a>'+
-        '<span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">Categoría '+i+'</span>'+
+        '<span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">Producto '+i+'</span>'+
           '</div>'+
          '<div class="col-10">'+
          '<a onclick="agregarProducto('+Product.id+')">'+
@@ -245,7 +245,7 @@ function llenarCat(){
 
 
         elements.insertAdjacentHTML('beforeend', insert);
-        
+       i++;
 
       
     });
@@ -456,7 +456,7 @@ function lastOne(Producto){
   //Inicio L20
   else if(Producto.detalle.tipo =="L20"){
     if(Producto.detalle.color=="Madera"){
-      cotizacion = (9600 * Producto.detalle.dimensionX/100) + (14000 * Producto.detalle.dimensionY/100) + (38 * 6 * Producto.detalle.dimensionY/100) + (120 * 4 * Producto.detalle.dimensionY/100) + (38 * 4 * Producto.detalle.dimensionX/100) + (120 * 2 * Producto.detalle.dimensionX/100) +  (3596) + (Producto.detalle.dimensionX/100 * Producto.detalle.dimensionY/100 * 13000)
+      cotizacion = (9600 * Producto.detalle.dimensionX/100) + (14400 * Producto.detalle.dimensionY/100) + (38 * 6 * Producto.detalle.dimensionY/100) + (120 * 4 * Producto.detalle.dimensionY/100) + (38 * 4 * Producto.detalle.dimensionX/100) + (120 * 2 * Producto.detalle.dimensionX/100) +  (3596) + (Producto.detalle.dimensionX/100 * Producto.detalle.dimensionY/100 * 13000)
 
     }else if(Producto.detalle.color=="Bronce"){
       cotizacion = (9252 *Producto.detalle.dimensionX/100) + (13878 * Producto.detalle.dimensionY/100) + (33 * 6 * Producto.detalle.dimensionY/100) + (116 * 4 * Producto.detalle.dimensionY/100) + (33 * 4 * Producto.detalle.dimensionX/100) + (116 * 2 * Producto.detalle.dimensionX/100) + (3096) + (Producto.detalle.dimensionY/100 * Producto.detalle.dimensionX/100 * 6500)
