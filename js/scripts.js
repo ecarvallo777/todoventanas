@@ -240,7 +240,7 @@ function llenarCat(){
          '</a>'+
 
          '</div>'
-        var elements = document.getElementById('insertProduct'+Product.categoria)
+        var elements = document.getElementById('insertProduct')
 
 
 
@@ -315,7 +315,7 @@ function agregarProducto(pId){
   cat = listaProductos[pId].categoria;
 
 
-  document.getElementById('cerrarModal'+cat).click();
+  document.getElementById('cerrarModalcat').click();
   añadirCarro(listaProductos[pId].nombre);
   sendButton('true');
 
@@ -357,6 +357,24 @@ function verComponentes(pId){
   tipo.setAttribute("onclick"," guardarComponentes("+index+")");
   
   $('#exampleModalRight').modal('show');
+
+  //
+  $('input[type=radio][name=gridRadios]').change(function() {
+    if (this.value == 'L25') {
+      document.getElementById("Mate").disabled = true;
+      document.getElementById("Titanio").disabled = false;
+
+
+    }
+    else if (this.value == 'L20') {
+      document.getElementById("Mate").disabled = true;
+      document.getElementById("Titanio").disabled = false;
+    }
+    else if (this.value == 'L15') {
+      document.getElementById("Mate").disabled = false;
+      document.getElementById("Titanio").disabled = true;
+    }
+});
 
 
 
@@ -429,6 +447,9 @@ function lastOne(Producto){
     else if(Producto.detalle.color =="Titanio"){
       cotizacion = (12000 * Producto.detalle.dimensionX/100) + (18000 * Producto.detalle.dimensionY/100) + (30 * 6 * Producto.detalle.dimensionY/100) + (116 * 4 *Producto.detalle.dimensionY/100)+ (30 * 6 * Producto.detalle.dimensionX/100) + (116 * 2 * Producto.detalle.dimensionX/100) + (13780) + (Producto.detalle.dimensionX/100 * Producto.detalle.dimensionY/100 * 6000)
     }
+    else if(Producto.detalle.color =="Mate"){
+      cotizacion = (11720 * Producto.detalle.dimensionX/100) + (17580 * Producto.detalle.dimensionY/100) + (30 * 6 * Producto.detalle.dimensionY/100) + (200 * 4 * Producto.detalle.dimensionY/100) + (30*6*Producto.detalle.dimensionX/100)+ (200*2*Producto.detalle.dimensionX/100) + (Producto.detalle.dimensionX/100 * Producto.detalle.dimensionY/100 * 8000) + (24216 )
+    }
   }
   // Fin L25
 
@@ -451,10 +472,7 @@ function lastOne(Producto){
 
   //Inicio L15
   else if(Producto.detalle.tipo =="L15"){
-    if(Producto.detalle.color=="Titanio"){
-      
-
-    }
+    cotizacion = (6000*Producto.detalle.dimensionX/100) + (9000 * Producto.detalle.dimensionY/100) + (35 * 6 * Producto.detalle.dimensionY/100) + (200 * 4 * Producto.detalle.dimensionY/100) + (35 * 4 * Producto.detalle.dimensionX/100) + (200 * 2 * Producto.detalle.dimensionX/100) + (Producto.detalle.dimensionX/100 * Producto.detalle.dimensionY/100 *12000 ) + (2282)
   }
   subtotal = subtotal + Math.round(cotizacion);
   //console.log(subtotal);
