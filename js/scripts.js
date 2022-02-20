@@ -217,7 +217,7 @@ var listaProductos = [
   {
     "id":"2",
     "categoria" : "cat2",
-    "nombre": "Showerdoor",
+    "nombre": "Showerdoor de aluminio",
     "imagen":"img/cards/thumb-2.jpg",
   }
                     ]
@@ -351,6 +351,43 @@ function verComponentes(pId){
       //$select.value = listaCarro[index].detalle.color;
   //};
 
+  //  Limitar opciones
+  nombreSeleccion = listaCarro[index].nombre;
+  if(nombreSeleccion == "Ventana de aluminio"){
+    document.getElementById("L25").disabled = false;
+
+    $('input[type=radio][name=gridRadios]').change(function() {
+      if (this.value == 'L25') {
+        document.getElementById("Mate").disabled = true;
+        document.getElementById("Titanio").disabled = false;
+
+
+      }
+      else if (this.value == 'L20') {
+        document.getElementById("Mate").disabled = true;
+        document.getElementById("Titanio").disabled = false;
+      }
+      else if (this.value == 'L15') {
+        document.getElementById("Mate").disabled = false;
+        document.getElementById("Titanio").disabled = true;
+      }
+  });
+}else if(nombreSeleccion =="Showerdoor de aluminio"){
+  document.getElementById("L25").disabled = true;
+  document.getElementById("Mate").disabled = false;
+  document.getElementById("Titanio").disabled = false;
+
+  $('input[type=radio][name=gridRadios]').change(function() {
+    if (this.value == 'L15') {
+      document.getElementById("Titanio").disabled = true;
+    }
+    else if(this.value =='L20'){
+      document.getElementById("Titanio").disabled = false;
+
+
+    }
+  })
+}
   // Guardar id producto en botón guardar
   var tipo = document.querySelector('#guardar');
 
@@ -358,23 +395,7 @@ function verComponentes(pId){
   
   $('#exampleModalRight').modal('show');
 
-  //
-  $('input[type=radio][name=gridRadios]').change(function() {
-    if (this.value == 'L25') {
-      document.getElementById("Mate").disabled = true;
-      document.getElementById("Titanio").disabled = false;
-
-
-    }
-    else if (this.value == 'L20') {
-      document.getElementById("Mate").disabled = true;
-      document.getElementById("Titanio").disabled = false;
-    }
-    else if (this.value == 'L15') {
-      document.getElementById("Mate").disabled = false;
-      document.getElementById("Titanio").disabled = true;
-    }
-});
+  
 
 
 
@@ -435,6 +456,7 @@ var cotizacion =0;
 var subtotal = 0;
 function lastOne(Producto){
   // Inicio L25
+  if(Producto.nombre=="Ventana de aluminio"){
   if(Producto.detalle.tipo =="L25"){
     if(Producto.detalle.color =="Madera"){
       // (Riel s + inf + cabezal + zocalo = $10.000 x ancho -convertdo a mt) + (Jamba+traslapo+pierna * 2 *alto )
@@ -474,11 +496,20 @@ function lastOne(Producto){
   else if(Producto.detalle.tipo =="L15"){
     cotizacion = (6000*Producto.detalle.dimensionX/100) + (9000 * Producto.detalle.dimensionY/100) + (35 * 6 * Producto.detalle.dimensionY/100) + (200 * 4 * Producto.detalle.dimensionY/100) + (35 * 4 * Producto.detalle.dimensionX/100) + (200 * 2 * Producto.detalle.dimensionX/100) + (Producto.detalle.dimensionX/100 * Producto.detalle.dimensionY/100 *12000 ) + (2282)
   }
-  subtotal = subtotal + Math.round(cotizacion);
+  
+}else if(Producto.nombre=="Showerdoor de aluminio"){
+  if(Producto.detalle.tipo=="L20"){
+
+    cotizacion = (8556 * Producto.detalle.dimensionX/100) + (12834 * Producto.detalle.dimensionY/100) + (177* Producto.detalle.dimensionY/100) + (856* Producto.detalle.dimensionY/100)+ (118* Producto.detalle.dimensionX/100) + (428* Producto.detalle.dimensionX/100) + (35796)
+  }else if(Producto.detalle.tipo =="L15"){
+    cotizacion = (4148 * Producto.detalle.dimensionX/100) + (6222 * Producto.detalle.dimensionY/100) + (177 *Producto.detalle.dimensionY/100)+(464 * Producto.detalle.dimensionY/100) + (118*Producto.detalle.dimensionX/100)+(232*Producto.detalle.dimensionY/100)+(22382)
+  }
+}
+
+subtotal = subtotal + Math.round(cotizacion);
   //console.log(subtotal);
   document.getElementById('Subtotal').innerHTML = '$'+subtotal;
-  return '$'+Math.round(cotizacion);
-}
+  return '$'+Math.round(cotizacion);}
 function print(){
   //Recoger datos ingresados.
 
