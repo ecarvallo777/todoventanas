@@ -502,7 +502,7 @@ function lastOne(Producto){
 
     cotizacion = (8556 * Producto.detalle.dimensionX/100) + (12834 * Producto.detalle.dimensionY/100) + (177* Producto.detalle.dimensionY/100) + (856* Producto.detalle.dimensionY/100)+ (118* Producto.detalle.dimensionX/100) + (428* Producto.detalle.dimensionX/100) + (35796)
   }else if(Producto.detalle.tipo =="L15"){
-    cotizacion = (4148 * Producto.detalle.dimensionX/100) + (6222 * Producto.detalle.dimensionY/100) + (177 *Producto.detalle.dimensionY/100)+(464 * Producto.detalle.dimensionY/100) + (118*Producto.detalle.dimensionX/100)+(232*Producto.detalle.dimensionY/100)+(22382)
+    cotizacion = (6863 * Producto.detalle.dimensionY/100) + (4498 * Producto.detalle.dimensionX/100) + 22382
   }
 }
 
@@ -518,16 +518,31 @@ function print(){
   Cliente = Cliente +' '+ document.getElementById('getApellidos').value;
 
   var Contacto = document.getElementById('getContacto').value;
+  nPedido = Contacto.substr(5, 9);
+
 
   //Carro
   //listaCarro array
 
   //Post 
   var insertCliente = '<p style="color:#303030; font-size: 14px;  line-height: 1.6; margin:0; padding:0;">'+
-                      Cliente+'<br>'+Contacto+'</p>'
+                      Cliente+'<br>'+Contacto+'<br> Nro. cotización: #'+nPedido+'</p>'
   var elementss = document.getElementById('postCliente');
   elementss.insertAdjacentHTML('beforeend', insertCliente);
 
+
+  // Fecha 
+  const tempoTranscurrido = Date.now();
+  const hoy = new Date(tempoTranscurrido);
+  var insertFecha = '<p style="color:#8f8f8f; font-size: 14px; padding: 0; line-height: 1.6; margin:0; ">'+
+                    'Fecha cotización'+
+                    '<br>'+
+                    hoy.toLocaleDateString();+
+                    '</p>'
+  getElement = document.getElementById('postFecha');
+  getElement.insertAdjacentHTML('beforeend', insertFecha);
+
+  
   //Recorrer array
   var printProduct;
   listaCarro.forEach(function(Producto){
@@ -555,7 +570,7 @@ function print(){
     var elementsss = document.getElementById('printProducto');
     elementsss.insertAdjacentHTML('beforeend', printProduct);
 
-    
+    document.getElementById('Total').innerHTML = 'Instalación + ' +document.getElementById('Subtotal').innerHTML
   })
 
 
