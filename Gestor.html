@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gestor de cotizaciones</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="font/iconsmind-s/css/iconsminds.css" />
+    <link rel="stylesheet" href="font/simple-line-icons/css/simple-line-icons.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.rtl.only.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap-datepicker3.min.css" />
+    <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="css/vendor/jquery.contextMenu.min.css" />
+    <link rel="stylesheet" href="css/vendor/component-custom-switch.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body id="app-container" class="menu-default show-spinner vertical boxed">
+    <nav class="navbar fixed-top">
+        <div class="d-flex align-items-center navbar-left">
+            <a href="#" class="menu-button d-none d-md-block">
+                <svg class="main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 17">
+                    <rect x="0.48" y="0.5" width="7" height="1" />
+                    <rect x="0.48" y="7.5" width="7" height="1" />
+                    <rect x="0.48" y="15.5" width="7" height="1" />
+                </svg>
+                <svg class="sub" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17">
+                    <rect x="1.56" y="0.5" width="16" height="1" />
+                    <rect x="1.56" y="7.5" width="16" height="1" />
+                    <rect x="1.56" y="15.5" width="16" height="1" />
+                </svg>
+            </a>
+
+            <a href="#" class="menu-button-mobile d-xs-block d-sm-block d-md-none">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 17">
+                    <rect x="0.5" y="0.5" width="25" height="1" />
+                    <rect x="0.5" y="7.5" width="25" height="1" />
+                    <rect x="0.5" y="15.5" width="25" height="1" />
+                </svg>
+            </a>
+
+            
+
+           
+        </div>
+
+
+
+        <div class="navbar-right">
+            <div class="header-icons d-inline-block align-middle">
+               
+
+               
+
+                
+            <div class="user d-inline-block">
+                <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <span class="name">Administrador</span>
+                    <span>
+                        <img alt="Profile Picture" src="img/profiles/l-1.jpg" />
+                    </span>
+                </button>
+
+                <div class="dropdown-menu dropdown-menu-right mt-3">
+                    <a class="dropdown-item" href="#">Salir</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="menu">
+        <div class="main-menu">
+            <div class="scroll">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#dashboard">
+                            <i class="iconsminds-shop-4"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#dashboard">
+                            <i class="simple-icon-basket-loaded"></i>
+                            <span>Productos</span>
+                        </a>
+                    </li>
+                    <li>
+                    
+                        <a href="#layouts">
+                            <i class="iconsminds-digital-drawing"></i> Cotizaciones
+                        </a>
+                    </li>
+                   
+                    
+                    
+                   
+                    
+                </ul>
+            </div>
+        </div>
+       
+    </div>
+
+    <main>
+        <div class="container-fluid disable-text-selection">
+            <div class = "row app-row">
+                <div class="col-12">
+                    <div class="mb-2">
+                        <h1>Lista de productos</h1>
+                        <div class="top-right-button-container">
+                            <button type="button" class="btn btn-primary btn-lg top-right-button mr-1">AGREGAR</button>
+                            
+                        </div>
+                        
+                    </div>
+
+                    <div class="mb-2">
+                        
+                        
+                    </div>
+                    <div class="separator mb-5"></div>
+                </div>
+           
+
+            <div class="col-12" id="Categorias">
+                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
+                    <div class="card" id="1">
+                        <div class="position-relative">
+                            <a onclick=verCategoria(1)><img class="card-img-top" src="img/cards/p1.jpg"
+                                    alt="Card image cap"></a>
+                            <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">NUEVO</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                
+                                <div class="col-10">
+                                    <a onclick=verCategoria(1)>
+                                        <p class="list-item-heading mb-4 pt-1" style="text-align:center">Ventana aluminio</p>
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                   
+
+                    
+
+
+                    
+                
+            </div>
+            <div class="col-12" id="Productos">
+               
+            </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <p class="mb-0 text-muted">eCarvallo Soluciones</p>
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/vendor/perfect-scrollbar.min.js"></script>
+    <script src="js/vendor/mousetrap.min.js"></script>
+    <script src="js/vendor/jquery.contextMenu.min.js"></script>
+    <script src="js/vendor/bootstrap-datepicker.js"></script>
+    <script src="js/dore.script.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/scripts-back.js"></script>
+
+    
+</body>
+
+</html>
