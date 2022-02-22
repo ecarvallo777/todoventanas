@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="font/iconsmind-s/css/iconsminds.css" />
     <link rel="stylesheet" href="font/simple-line-icons/css/simple-line-icons.css" />
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/vendor/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="css/vendor/datatables.responsive.bootstrap4.min.css" />
     <link rel="stylesheet" href="css/vendor/bootstrap.rtl.only.min.css" />
     <link rel="stylesheet" href="css/vendor/bootstrap-datepicker3.min.css" />
     <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css" />
@@ -124,41 +126,104 @@
                 </div>
            
 
-            <div class="col-12" id="Categorias">
-                <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
-                    <div class="card" id="1">
-                        <div class="position-relative">
-                            <a onclick=verCategoria(1)><img class="card-img-top" src="img/cards/p1.jpg"
-                                    alt="Card image cap"></a>
-                            <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">NUEVO</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                
-                                <div class="col-10">
-                                    <a onclick=verCategoria(1)>
-                                        <p class="list-item-heading mb-4 pt-1" style="text-align:center">Ventana aluminio</p>
-                                    </a>
+                <div class="col-12" id="Categorias">
+                    <div class="col-xl-3 col-lg-4 col-12 col-sm-6 mb-4">
+                        <div class="card" id="1">
+                            <div class="position-relative">
+                                <a onclick=verCategoria(1)><img class="card-img-top" src="img/cards/p1.jpg"
+                                        alt="Card image cap"></a>
+                                <span class="badge badge-pill badge-theme-1 position-absolute badge-top-left">NUEVO</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
                                     
+                                    <div class="col-10">
+                                        <a onclick=verCategoria(1)>
+                                            <p class="list-item-heading mb-4 pt-1" style="text-align:center">Ventana aluminio</p>
+                                        </a>
+                                        
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
+                    
+                    
+
+                        
+
+
+                        
+                    
                 </div>
-                
-                
-                   
+                    <div class="col-12 data-table-rows data-tables-hide-filter" id="Productos" style="display:none">
+                        <table id="datatableRows" class="data-table responsive nowrap"
+                            data-order="[[ 1, &quot;desc&quot; ]]">
+                            
+                            <tbody id="tablaProductos">
+                                <tr>
+                                    <td>
+                                        <p class="list-item-heading">Showerdoor</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-muted">L20</p>
+                                    </td>
+
+                                    <td>
+                                        <p class="text-muted">TITANIO</p>
+                                    </td>
+                                    <td>
+                                        <div class="w-15 w-xs-100">
+                                            <div class="custom-switch custom-switch-primary-inverse mb-2 custom-switch-small">
+                                                <input class="custom-switch-input" id="switchL20" type="checkbox" checked="">
+                                                <label class="custom-switch-btn" for="switchL20"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <label>
+                                            <input type="checkbox" class="custom-control-input">
+                                            <a class="simple-icon-trash
+                                            ">&nbsp;</a>
+                                        </label>
+                                    </td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="list-item-heading">Ventana de aluminio</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-muted">L25</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-muted">ROBLE</p>
+                                    </td>
+                                    <td>
+                                        <div class="w-15 w-xs-100">
+                                            <div class="custom-switch custom-switch-primary-inverse mb-2 custom-switch-small">
+                                                <input class="custom-switch-input" id="switchL25" type="checkbox" checked="">
+                                                <label class="custom-switch-btn" for="switchL25"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <label>
+                                            <a class="simple-icon-trash
+                                            ">&nbsp;</a>
+                                        </label>
+                                    </td>
+                                </tr>
+                                
+                                
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
                     
-
-
-                    
-                
-            </div>
-            <div class="col-12" id="Productos">
-               
-            </div>
-            </div>
             
         </div>
     </main>
@@ -184,6 +249,10 @@
     <script src="js/vendor/jquery.contextMenu.min.js"></script>
     <script src="js/vendor/bootstrap-datepicker.js"></script>
     <script src="js/dore.script.js"></script>
+    <script src="js/vendor/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+
+
     <script src="js/scripts.js"></script>
     <script src="js/scripts-back.js"></script>
 
