@@ -12,14 +12,14 @@ function verCategoria(idCategoria){
                                 '<div class="scroll ps">'+
                                     '<p class="text-muted text-small">Estado</p>'+
                                     '<ul class="list-unstyled mb-5">'+
-                                        '<li class="active">'+
-                                            '<a href="#">'+
-                                                '<i class="simple-icon-like"></i>'+
+                                        '<li  name="state" id="like">'+
+                                            '<a href="#" onclick=filtrar("like") >'+
+                                                '<i class="simple-icon-like" ></i>'+
                                                 'Producto Disponible'+
                                             '</a>'+
                                         '</li>'+
-                                        '<li>'+
-                                            '<a href="#">'+
+                                        '<li name="state"  id="dislike"> '+
+                                            '<a href="#" onclick=filtrar("dislike") >'+
                                                 '<i class="simple-icon-dislike"></i>'+
                                                 'Producto no disponible'+
 
@@ -48,24 +48,27 @@ function verCategoria(idCategoria){
                                         '</li>'+
                                     '</ul>'+
                                     '<p class="text-muted text-small">Colores</p>'+
-                                    '<div>'+
-                                        '<p class="d-sm-inline-block mb-1">'+
-                                            '<a href="#">'+
-                                                '<span class="badge badge-pill badge-outline-primary mb-1">ROBLE</span>'+
-                                            '</a>'+
-                                        '</p>'+
-
-                                        '<p class="d-sm-inline-block mb-1">'+
-                                            '<a href="#">'+
-                                                '<span class="badge badge-pill badge-outline-theme-3 mb-1">MATE</span>'+
-                                            '</a>'+
-                                        '</p>'+
-                                        '<p class="d-sm-inline-block  mb-1">'+
-                                            '<a href="#">'+
-                                                '<span class="badge badge-pill badge-outline-secondary mb-1">TITANIO</span>'+
-                                            '</a>'+
-                                        '</p>'+
-                                    '</div>'+
+                                    '<ul class="list-unstyled mb-5">'+
+                                        '<li>'+
+                                            '<div class="custom-control custom-checkbox mb-2">'+
+                                                '<input type="checkbox" class="custom-control-input" id="ROBLE" onclick=filtrar("ROBLE") name="colors">'+
+                                                '<label class="custom-control-label" for="ROBLE">ROBLE</label>'+
+                                            '</div>'+
+                                        '</li>'+
+                                        '<li>'+
+                                            '<div class="custom-control custom-checkbox mb-2">'+
+                                                '<input type="checkbox" class="custom-control-input" id="MATE" onclick=filtrar("MATE") name="colors">'+
+                                                '<label class="custom-control-label" for="MATE">MATE</label>'+
+                                            '</div>'+
+                                        '</li>'+
+                                        '<li>'+
+                                            '<div class="custom-control custom-checkbox ">'+
+                                                '<input type="checkbox" class="custom-control-input" id="TITANIO" onclick=filtrar("TITANIO") name="colors">'+
+                                                '<label class="custom-control-label" for="TITANIO">TITANIO</label>'+
+                                            '</div>'+
+                                        '</li>'+
+                                    '</ul>'+
+                                    
 
                                 '<div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>'+
                             '</div>'+
@@ -80,24 +83,73 @@ function verCategoria(idCategoria){
 
 
 } 
-function filtrar(filtro)
-{ 
-    var radio = document.getElementById(filtro);
-    var state;
-    radio.addEventListener('change', function(){
-        $('input[name="checkCat"]').not(this).prop('checked', false);
-        $('input[name="checkCat"]').not(this).prop('active', false);
+function filtrar(filtro){ 
+    var elem = document.getElementById(filtro);
+    var diselem ;
 
-        if (this.checked) {
+
+    var state;
+
+    if(elem.name =='checkCat'){
+        elem.addEventListener('change', function(){
+            document.getElementById('like').removeAttribute('class');
+            document.getElementById('dislike').removeAttribute('class');
+
+
+            $('input[name="checkCat"]').not(this).prop('checked', false);
+
+            if (this.checked) {
+                state= true; // checked, aplicar filtro.
+            }else state= false; // unchecked, deshacer filtro.
+            filt(filtro);
+    });}
+    else if(elem.id =='like' || elem.id =='dislike'){
+        $('input[name="checkCat"]').prop('checked', false);
+        
+        //Eliminar actividad del otro li
+        if (elem.id =='like'){
+            diselem = document.getElementById('dislike')
+            diselem.removeAttribute('class');
+        }else if(elem.id =='dislike'){
+            diselem = document.getElementById('like');
+            diselem.removeAttribute('class');
+
+
+        }
+        //Activar o desactivar li seleccionado
+        if(elem.classList.contains('active')){
+            elem.removeAttribute('class');
+            state=false;
+            
+
+        }else{
+            elem.setAttribute("class", "active");
+            state=true;}
+
+        if(elem.id=='like'){filt('available')}
+        else{filt('busy');}
+    }else if(elem.name == 'colors'){
+        document.getElementById('like').removeAttribute('class');
+        document.getElementById('dislike').removeAttribute('class');
+        $('input[name="colors"]').not(elem).prop('checked', false);
+        $('input[name="checkCat"]').prop('checked', false);
+
+        if (elem.checked) {
             state= true; // checked, aplicar filtro.
         }else state= false; // unchecked, deshacer filtro.
 
+        filt(elem.id);
+
+    }
+
+    //Generic 
+    function filt(filter){
     $("#datatableRows tbody tr").filter(function(){
-        $(this).each(function(){
+        $(this).each(function(){elem
             found = false;
             $(this).children().each(function(){
                 content = $(this).html();
-                if(content.match(filtro))
+                if(content.match(filter))
                 {
                     found = true
                 }
@@ -112,5 +164,18 @@ function filtrar(filtro)
             }
         });
     });
-});
+    }
+
+    
+}
+function changeState(idCheckbox){
+    elem = document.getElementById(idCheckbox);
+    if(elem.name=='available'){elem.name = 'busy';
+    elem.removeAttribute('checked');}else{
+        elem.name='available';
+    }
+    
+    
+
+
 }
