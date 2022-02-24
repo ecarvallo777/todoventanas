@@ -97,6 +97,7 @@ function filtrar(filtro){
 
 
             $('input[name="checkCat"]').not(this).prop('checked', false);
+            $('input[name="colors"]').prop('checked', false);
 
             if (this.checked) {
                 state= true; // checked, aplicar filtro.
@@ -105,7 +106,8 @@ function filtrar(filtro){
     });}
     else if(elem.id =='like' || elem.id =='dislike'){
         $('input[name="checkCat"]').prop('checked', false);
-        
+        $('input[name="colors"]').prop('checked', false);
+
         //Eliminar actividad del otro li
         if (elem.id =='like'){
             diselem = document.getElementById('dislike')
